@@ -17,24 +17,20 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
-    lateinit var tvBio: TextView
-    lateinit var tvUserName: TextView
-    lateinit var tvUserID: TextView
-    lateinit var tvFollower: TextView
-    lateinit var tvFollowing: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tvBio = findViewById(R.id.tvBio)
-        tvUserName = findViewById(R.id.tvUserName)
-        tvUserID = findViewById(R.id.tvUserID)
-        tvFollower = findViewById(R.id.tvFollower)
-        tvFollowing = findViewById(R.id.tvFollowing)
+        val tvBio : TextView = findViewById(R.id.tvBio)
+        val tvUserName : TextView = findViewById(R.id.tvUserName)
+        val tvUserID : TextView = findViewById(R.id.tvUserID)
+        val tvFollower : TextView = findViewById(R.id.tvFollower)
+        val tvFollowing : TextView = findViewById(R.id.tvFollowing)
         val profileImage: ImageView = findViewById(R.id.ivProfile)
 
-        val call = RetrofitBuilder().githubApi.getGithubInfo()
+        val call = RetrofitBuilder.githubApi.getGithubInfo()
 
         call.enqueue(object : Callback<GithubInfo> {
 
